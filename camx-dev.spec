@@ -1,30 +1,22 @@
-# RPM package for the Kodiak KT CamX API headers used to compile camera-service
-# and GStreamer camera component.
-
 %global debug_package %{nil}
 %global __os_install_post %{nil}
 %global _build_id_links none
 
-# Component build tag containing the version 1.0.0 headers tarball. Update this
-# together with Version when publishing a new header payload.
-%global upstream_tag 260831
+%global upstream_tag 260925
 
 # The publisher uses arm64 in the tarball filename. The RPM remains noarch
 # because the payload contains headers only.
 %global upstream_arch arm64
 
 Name:           camx-dev
-Version:        1.0.0
+Version:        1.1.1
 Release:        1%{?dist}
 Summary:        Qualcomm CamX usermode headers consumed by camera service
 
-# The packaged headers and license are distributed under the Qualcomm
-# proprietary binary license included as LICENSE.qcom-2.
 License:        LicenseRef-Qualcomm-Proprietary
 URL:            http://support.cdmatech.com
 
-# The published artifact uses camx-headers_<version>_<arch>.tar.gz.
-Source0:        https://qartifactory-edge.qualcomm.com/artifactory/qsc_releases/software/chip/component/camx.qclinux.0.0/%{upstream_tag}/prebuilt_el10/camx-headers_%{version}_%{upstream_arch}.tar.gz
+Source0:        https://qartifactory-edge.qualcomm.com/artifactory/qsc_releases/software/chip/component/camx.qclinux.0.0/%{upstream_tag}/prebuilt_rpm/camx-headers_%{version}_%{upstream_arch}.tar.gz
 
 BuildArch:      noarch
 
@@ -75,5 +67,5 @@ cp -a %{buildroot}%{_includedir}/camx-v1/camx-api/camx/service/system/. \
 %{_includedir}/system
 
 %changelog
-* Thu Sep 10 2026 Kripalsinh Rana <kripalsi@qti.qualcomm.com> - 1.0.0-1
+* Mon Sep 28 2026 Qualcomm Camera Team <camx.deb.maintainers@qti.qualcomm.com> - 1.1.1-1
 - Initial RPM package for the CamX API headers.
