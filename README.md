@@ -17,7 +17,7 @@ repository documentation and workflow support files.
 
 | File | Purpose |
 |---|---|
-| `camx-dev.spec` | Builds the `libcamx-dev` header package. |
+| `camx-dev.spec` | Builds the `libcamx-devel` header package. |
 | `sources` | SHA-512 checksum for the prebuilt headers archive. |
 | `README.md` | Package and repository documentation. |
 | `LICENSE.txt` | License for the RPM packaging repository. |
@@ -26,22 +26,9 @@ The prebuilt headers archive is not committed to this repository. `Source0` in
 the spec points to the QArtifactory release, and the checksum in `sources` is
 verified before the RPM is built.
 
-## CI Workflows
-
-The GitHub Actions workflows use the shared
-[`qcom-rpm-utils`](https://github.com/qualcomm-linux/qcom-rpm-utils) build
-environment and run `rpmbuild` inside the prebuilt `rpm-builder` container.
-
-| Workflow | Trigger | Purpose |
-|---|---|---|
-| [`build-on-pr.yml`](.github/workflows/build-on-pr.yml) | Pull request | Downloads and verifies the prebuilt headers archive, then builds the RPM. |
-| [`pkg-release.yml`](.github/workflows/pkg-release.yml) | Manual dispatch | Builds and publishes the RPM to Artifactory after approval. |
-
-Pull requests for the CentOS Stream 10 package must target the `c10s` branch.
-
 ## Package
 
-### `libcamx-dev`
+### `libcamx-devel`
 
 Header-only development package providing the CamX API for camera-service and
 GStreamer consumers:
@@ -61,7 +48,7 @@ Install the development headers from the configured CentOS Stream 10
 repository:
 
 ```bash
-sudo dnf install libcamx-dev
+sudo dnf install -y libcamx-devel
 ```
 
 ## Updating the Package Version
