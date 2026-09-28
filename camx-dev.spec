@@ -8,12 +8,12 @@
 # because the payload contains headers only.
 %global upstream_arch arm64
 
-Name:           camx-dev
+Name:           camx-devel
 Version:        1.1.1
 Release:        1%{?dist}
 Summary:        Qualcomm CamX usermode headers consumed by camera service
 
-License:        LicenseRef-Qualcomm-Proprietary
+License:        LicenseRef-Qualcomm-nologin-binaries-license
 URL:            http://support.cdmatech.com
 
 Source0:        https://qartifactory-edge.qualcomm.com/artifactory/qsc_releases/software/chip/component/camx.qclinux.0.0/%{upstream_tag}/prebuilt_rpm/camx-headers_%{version}_%{upstream_arch}.tar.gz
@@ -28,11 +28,10 @@ Target-agnostic header-only package providing the CamX camera API under
 compiled code; it exists so camera-service and GStreamer-side consumers can
 build against the CamX API without depending on a per-target CamX build.
 
-%package -n libcamx-dev
+%package -n libcamx-devel
 Summary:        Qualcomm CamX usermode headers consumed by camera service
 
-# Keep the libcamx-dev binary name used by Stage 1 and existing RPM consumers.
-%description -n libcamx-dev
+%description -n libcamx-devel
 Qualcomm CamX usermode headers consumed by camera service.
 
 Target-agnostic header-only package providing the CamX camera API under
@@ -58,7 +57,7 @@ cp -a %{buildroot}%{_includedir}/camx-v1/camx-api/camx/service/hardware/. \
 cp -a %{buildroot}%{_includedir}/camx-v1/camx-api/camx/service/system/. \
     %{buildroot}%{_includedir}/system/
 
-%files -n libcamx-dev
+%files -n libcamx-devel
 %license %{_defaultlicensedir}/libcamx-dev/LICENSE.qcom-2
 %license %{_defaultlicensedir}/libcamx-dev/LICENSE
 %doc %{_docdir}/libcamx-dev/NOTICE
