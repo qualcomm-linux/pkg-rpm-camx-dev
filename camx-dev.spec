@@ -12,12 +12,9 @@ Name:           camx-devel
 Version:        1.1.1
 Release:        1%{?dist}
 Summary:        Qualcomm CamX usermode headers consumed by camera service
-
 License:        LicenseRef-Qualcomm-nologin-binaries-license
 URL:            http://support.cdmatech.com
-
 Source0:        https://qartifactory-edge.qualcomm.com/artifactory/qsc_releases/software/chip/component/camx.qclinux.0.0/%{upstream_tag}/prebuilt_rpm/camx-headers_%{version}_%{upstream_arch}.tar.gz
-
 BuildArch:      noarch
 
 %description
