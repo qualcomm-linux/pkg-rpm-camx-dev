@@ -2,7 +2,7 @@
 %global __os_install_post %{nil}
 %global _build_id_links none
 
-%global upstream_tag 260925
+%global upstream_tag 261026
 
 # The publisher uses arm64 in the tarball filename. The RPM remains noarch
 # because the payload contains headers only.
@@ -10,7 +10,7 @@
 
 Name:           camx-dev
 Version:        1.1.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Qualcomm CamX usermode headers consumed by camera service
 License:        LicenseRef-Qualcomm-nologin-binaries-license
 Source0:        https://qartifactory-edge.qualcomm.com/artifactory/qsc_releases/software/chip/component/camx.qclinux.0.0/%{upstream_tag}/prebuilt_rpm/camx-headers_%{version}_%{upstream_arch}.tar.gz
@@ -62,5 +62,7 @@ cp -a %{buildroot}%{_includedir}/camx-v1/camx-api/camx/service/system/. \
 %{_includedir}/system
 
 %changelog
+* Mon Nov 2 2026 Qualcomm Camera Team <camx.deb.maintainers@qti.qualcomm.com> - 1.1.1-2
+- Update CAMX API packaging to include chicdk headers.
 * Mon Sep 28 2026 Qualcomm Camera Team <camx.deb.maintainers@qti.qualcomm.com> - 1.1.1-1
 - Initial RPM package for the CamX API headers.
